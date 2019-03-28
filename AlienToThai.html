@@ -1,0 +1,160 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript">
+
+function convert(input){
+	var result = '';
+	//--------------First line region---------------------------
+	result = input.replace(/1/g,"\u0E45");
+	result = result.replace(/!/g,"\u0E50");
+	result = result.replace(/2/g,"\u0E1D");
+	result = result.replace(/@/g,"\u0E51");
+	result = result.replace(/3/g,"\u0E02");
+	result = result.replace(/#/g,"\u0E52");
+	result = result.replace(/4/g,"\u0E20");
+	result = result.replace(/\$/g,"\u0E53");
+	result = result.replace(/5/g,"\u0E16");
+	result = result.replace(/%/g,"\u0E54");
+	result = result.replace(/6/g,"\u0E38");
+	result = result.replace(/\^/g,"\u0E39");
+	result = result.replace(/7/g,"\u0E36");
+	result = result.replace(/&/g,"\u0E3F");
+	result = result.replace(/8/g,"\u0E04");
+	result = result.replace(/\*/g,"\u0E55");
+	result = result.replace(/9/g,"\u0E15");
+	result = result.replace(/\(/g,"\u0E56");
+	result = result.replace(/0/g,"\u0E08");
+	result = result.replace(/\)/g,"\u0E57");
+	result = result.replace(/-/g,"\u0E02");
+	result = result.replace(/_/g,"\u0E58");
+	result = result.replace(/=/g,"\u0E0A");
+	result = result.replace(/\+/g,"\u0E59");
+	//-------------Second line region------------------------------
+	result = result.replace(/q/g, '\u0E46');
+	result = result.replace(/Q/g, '\u0E4F');
+	result = result.replace(/w/g, '\u0E44');
+	result = result.replace(/W/g, '"');
+	result = result.replace(/e/g, '\u0E33');
+	result = result.replace(/E/g, '\u0E0E');
+	result = result.replace(/r/g, '\u0E1E');
+	result = result.replace(/R/g, '\u0E11');
+	result = result.replace(/t/g, '\u0E30');
+	result = result.replace(/T/g, '\u0E18');
+	result = result.replace(/y/g, '\u0E31');
+	result = result.replace(/Y/g, '\u0E4D');
+	result = result.replace(/u/g, '\u0E35');
+	result = result.replace(/U/g, '\u0E4A');
+	result = result.replace(/i/g, '\u0E23');
+	result = result.replace(/I/g, '\u0E13');
+	result = result.replace(/o/g, '\u0E19');
+	result = result.replace(/O/g, '\u0E2F');
+	result = result.replace(/p/g, '\u0E22');
+	result = result.replace(/P/g, '\u0E0D');
+	result = result.replace(/\[/g, '\u0E1A');
+	result = result.replace(/\{/g, '\u0E10');
+	result = result.replace(/\]/g, '\u0E25');
+	result = result.replace(/\}/g, ',');
+	result = result.replace(/\\/g, '\u0E03');
+	result = result.replace(/\|/g, '\u0E05');
+	//--------------Third line region-----------------------------
+	result = result.replace(/a/g, '\u0E1F');
+	result = result.replace(/A/g, '\u0E24');
+	result = result.replace(/s/g, '\u0E2B');
+	result = result.replace(/S/g, '\u0E06');
+	result = result.replace(/d/g, '\u0E01');
+	result = result.replace(/D/g, '\u0E0F');
+	result = result.replace(/f/g, '\u0E14');
+	result = result.replace(/F/g, '\u0E42');
+	result = result.replace(/g/g, '\u0E40');
+	result = result.replace(/G/g, '\u0E0C');
+	result = result.replace(/h/g, '\u0E49');
+	result = result.replace(/H/g, '\u0E47');
+	result = result.replace(/j/g, '\u0E48');
+	result = result.replace(/J/g, '\u0E4B');
+	result = result.replace(/k/g, '\u0E32');
+	result = result.replace(/K/g, '\u0E29');
+	result = result.replace(/l/g, '\u0E2A');
+	result = result.replace(/L/g, '\u0E28');
+	result = result.replace(/\;/g, '\u0E27');
+	result = result.replace(/\:/g, '\u0E0B');
+	result = result.replace(/\'/g, '\u0E07');
+	result = result.replace(/\"/g, '.');
+	//--------------Third line region-----------------------------
+	result = result.replace(/z/g, '\u0E1C');
+	result = result.replace(/Z/g, '(');
+	result = result.replace(/x/g, '\u0E1B');
+	result = result.replace(/X/g, ')');
+	result = result.replace(/c/g, '\u0E41');
+	result = result.replace(/C/g, '\u0E09');
+	result = result.replace(/v/g, '\u0E2D');
+	result = result.replace(/V/g, '\u0E2E');
+	result = result.replace(/b/g, '\u0E34');
+	result = result.replace(/B/g, '\u0E3A');
+	result = result.replace(/n/g, '\u0E37');
+	result = result.replace(/N/g, '\u0E4C');
+	result = result.replace(/m/g, '\u0E17');
+	result = result.replace(/M/g, '\u0E26');
+	result = result.replace(/\,/g, '\u0E21');
+	result = result.replace(/\</g, '\u0E12');
+	result = result.replace(/\./g, '\u0E43');
+	result = result.replace(/\>/g, '\u0E2C');
+	result = result.replace(/\//g, '\u0E1D');
+	result = result.replace(/\?/g, '\u0E26');
+	return result;
+}
+function copyText() {
+  var copyText = document.getElementById("outputText");
+  copyText.select();
+  document.execCommand("copy");
+  document.getElementById("btncp").innerHTML = "Copied!";
+}
+document.addEventListener('DOMContentLoaded', function (){
+        $('#inputText').bind('input propertychange', function() {
+        	document.getElementById("btncp").innerHTML = "Copy text";
+        	if(this.value.length){
+        		var newtext = document.getElementById("inputText").value;
+        		document.getElementById("outputText").value = convert(newtext);
+      		} else {
+        		document.getElementById("outputText").value = "";
+      		}
+		});
+    });
+
+</script>
+<style type="text/css">
+	.textarea {  
+		font-family:"Times New Roman", Times, monospace;  
+   		font-size: 10px;   
+   	}
+   	.button {
+	  background-color: #4CAF50; /* Green */
+	  border: none;
+	  color: white;
+	  padding: 0px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 7px;
+	  height:20px;
+      width:50px;
+	  margin: 4px 2px;
+	  -webkit-transition-duration: 0.4s; /* Safari */
+	  transition-duration: 0.4s;
+	  cursor: pointer;
+	}
+	.button5 {
+	  background-color: white;
+	  color: black;
+	  border: 2px solid #555555;
+	}
+
+	.button5:hover {
+	  background-color: #555555;
+	  color: white;
+	}
+</style>
+<textarea rows="5" cols="40" id="inputText" placeholder="Typing input here..."></textarea>
+<br>
+<textarea rows="5" cols="40" id="outputText" ></textarea>
+<br>
+<button id="btncp" onclick="copyText()" class=" button button5">Copy text</button>
