@@ -119,7 +119,11 @@ document.addEventListener('DOMContentLoaded', function (){
       		}
 		});
     });
-
+function search(){
+	var text = encodeURIComponent($('#outputText').val());
+	var Url = 'https://www.google.com/search?q='+text+'&rlz=1C1GCEU_enTH836TH836&oq='+text+'&aqs=chrome..69i57j69i60.11270j0j4&sourceid=chrome&ie=UTF-8'
+	window.open(Url);
+}
 </script>
 <style type="text/css">
 	.textarea {  
@@ -134,9 +138,9 @@ document.addEventListener('DOMContentLoaded', function (){
 	  text-align: center;
 	  text-decoration: none;
 	  display: inline-block;
-	  font-size: 7px;
-	  height:20px;
-      width:50px;
+	  font-size: 15px;
+	  height:30px;
+      width:90px;
 	  margin: 4px 2px;
 	  -webkit-transition-duration: 0.4s; /* Safari */
 	  transition-duration: 0.4s;
@@ -158,3 +162,4 @@ document.addEventListener('DOMContentLoaded', function (){
 <textarea rows="5" cols="40" id="outputText" ></textarea>
 <br>
 <button id="btncp" onclick="copyText()" class=" button button5">Copy text</button>
+<button id="btnsearch" onclick="search()" class=" button button5">Search</button>
